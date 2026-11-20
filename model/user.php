@@ -93,3 +93,42 @@ class admin extends user{
 }
 
 
+class pro extends user{
+     private int $id_pro;
+     private string $specialite;
+     private string  $gouvernorat;
+     private string  $adresse_cabinet;
+     private int $tarif;
+
+
+     public function __construct( 
+                                    int $id_user ,
+                                    string $nom  ,
+                                    string $prenom ,
+                                    int $age ,
+                                    string $genre ,
+                                    string $bloodtype ,
+                                    string $role ,
+                                    string $email ,
+                                    string $pseudo ,
+                                    string $login ,
+                                    string $mdp ,
+                                    int $num_telephone ,
+                                    string $date_inscription ,
+                                    int $id_pro ,
+                                    string  $specialite ,
+                                    string  $gouvernorat,
+                                    string  $adresse_cabinet,
+                                    int $tarif
+)
+    {
+
+        $this->id_pro = $id_pro;
+        $this->specialite = $specialite;
+        $this->gouvernorat = $gouvernorat;
+        $this->adresse_cabinet = $adresse_cabinet;
+        $this->tarif = $tarif;
+        parent::__construct($id_user , $nom  , $prenom , $age , $genre , $bloodtype , $role , $email , $pseudo );
+    }
+
+}
