@@ -7,14 +7,33 @@ class user{
     private int $age;
     private string $genre;
     private string $email;
+    private string $login;
+    private string $mdp;
+    private int $num_telephone;
     private string $pseudo;
     private string $bloodtype;
     private string $role;
+    private string $date_inscription;
     
     
     
-    public function __construct( int $id , string $nom  , string $prenom , int $age , string $genre , string $bloodtype , string $role , string $email , string $pseudo ){
-        $this->id = $id;
+    public function __construct( 
+                                    int $id_user ,
+                                    string $nom  ,
+                                    string $prenom ,
+                                    int $age ,
+                                    string $genre ,
+                                    string $bloodtype ,
+                                    string $role ,
+                                    string $email ,
+                                    string $pseudo ,
+                                    string $login ,
+                                    string $mdp ,
+                                    int $num_telephone ,
+                                    string $date_inscription 
+                                    )
+    {
+        $this->id_user = $id_user;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->age = $age;
@@ -23,6 +42,11 @@ class user{
         $this->pseudo = $pseudo;
         $this->bloodtype = $bloodtype;
         $this->role = $role;
+        $this->login = $login;
+        $this->mdp = $mdp;
+        $this->num_telephone = $num_telephone;
+        $this->date_inscription = $date_inscription;
+
         
     }
     public function __get($prop){
@@ -40,9 +64,30 @@ class user{
 
 class admin extends user{
      private int $id_admin;
-     private string $login;
-     private string $mdp;
-     private string 
+     private string  $niveau_acces;
 
+     public function __construct( 
+                                    int $id_user ,
+                                    string $nom  ,
+                                    string $prenom ,
+                                    int $age ,
+                                    string $genre ,
+                                    string $bloodtype ,
+                                    string $role ,
+                                    string $email ,
+                                    string $pseudo ,
+                                    string $login ,
+                                    string $mdp ,
+                                    int $num_telephone ,
+                                    string $date_inscription ,
+                                    int $id_admin ,
+                                    string  $niveau_acces
+)
+    {
+
+        $this->niveau_acces = $niveau_acces;
+        $this->id_admin = $id_admin;
+        parent::__construct($id_user , $nom  , $prenom , $age , $genre , $bloodtype , $role , $email , $pseudo );
+    }
 
 }
