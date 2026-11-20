@@ -1,0 +1,194 @@
+/* ==============================
+   STYLE GENERAL
+============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #FAF7F2;
+    color: #3D4F66;
+    margin: 0;
+    padding: 30px;
+}
+
+/* ==============================
+   CARTE
+============================== */
+
+.card {
+    max-width: 480px;
+    margin: auto;
+    background: #FFFFFF;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(61, 79, 102, 0.10);
+}
+
+/* ==============================
+   TITRES
+============================== */
+
+h2 {
+    text-align: center;
+    color: #3D4F66;
+    margin-top: 0;
+}
+
+/* ==============================
+   LABELS
+============================== */
+
+label {
+    display: block;
+    margin: 12px 0 4px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #3D4F66;
+}
+
+/* ==============================
+   CHAMPS DE SAISIE
+============================== */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #E8EDF0;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #FFFFFF;
+    color: #3D4F66;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #7FB3D5;
+    box-shadow: 0 0 0 3px rgba(127, 179, 213, 0.15);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #A9B4C0;
+}
+
+/* ==============================
+   BOUTONS
+============================== */
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #7FB3D5;
+    color: #FFFFFF;
+    border: 0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5F9FC7;
+}
+
+/* ==============================
+   ERREURS DE SAISIE
+============================== */
+
+/* Cadre rouge sur le champ invalide */
+input.champ-erreur,
+select.champ-erreur,
+textarea.champ-erreur {
+    border: 2px solid #D64545;
+    background: #FFF5F5;
+}
+
+input.champ-erreur:focus,
+select.champ-erreur:focus,
+textarea.champ-erreur:focus {
+    border-color: #D64545;
+    box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.15);
+}
+
+/* Message affiche sous le champ (pas une bulle) */
+.msg-erreur {
+    display: block;
+    color: #D64545;
+    font-size: 13px;
+    margin: 4px 0 6px;
+}
+
+/* Ancienne classe generique (autres pages) */
+.erreur {
+    color: #D98E7A;
+    font-size: 13px;
+    min-height: 16px;
+}
+
+/* ==============================
+   CHAMPS SPECIFIQUES AU ROLE
+   (patient / medecin / admin)
+============================== */
+
+.champs {
+    display: none;
+}
+
+.champs.visible {
+    display: block;
+}
+
+/* ==============================
+   PAGE DE RESULTAT
+============================== */
+
+.resultat {
+    text-align: center;
+}
+
+.ok {
+    color: #7FA98A;
+}
+
+.ko {
+    color: #D98E7A;
+}
+
+/* ==============================
+   LIENS
+============================== */
+
+a {
+    color: #7FB3D5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #3D4F66;
+    text-decoration: underline;
+}
+
+/* ==============================
+   PETITE ADAPTATION MOBILE
+============================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+}
