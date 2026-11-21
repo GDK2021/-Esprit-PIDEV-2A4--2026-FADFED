@@ -1,4 +1,3 @@
-
 <?php
 
 require_once __DIR__ .  '/../config.php';
@@ -23,20 +22,20 @@ class UserC
         );
 
         $req->execute([
-            'nom' => $u->nom,
-            'prenom' => $u->prenom,
-            'age' => $u->age,
-            'genre' => $u->genre,
-            'role' => $u->role,
-            'email' => $u->email,
-            'pseudo' => $u->pseudo,
-            'mdp' => password_hash($u->mdp, PASSWORD_DEFAULT),
-            'telephone' => $u->num_telephone
+            'nom' => $u->getNom(),
+            'prenom' => $u->getPrenom(),
+            'age' => $u->getAge(),
+            'genre' => $u->getGenre(),
+            'role' => $u->getRole(),
+            'email' => $u->getEmail(),
+            'pseudo' => $u->getPseudo(),
+            'mdp' => password_hash($u->getMdp(), PASSWORD_DEFAULT),
+            'telephone' => $u->getNumTelephone()
         ]);
 
-        $u->id = $db->lastInsertId();
+        $u->setId((int) $db->lastInsertId());
 
-        return $u->id;
+        return $u->getId();
     }
 
 
@@ -46,17 +45,14 @@ class UserC
 
         $req = $db->prepare(
             "INSERT INTO patient
-            (id, contact_urgence, num_urgence, antecedents, allergies)
+            (id, allergies)
             VALUES
-            (:id, :contact, :numero, :antecedents, :allergies)"
+            (:id, :allergies)"
         );
 
         $req->execute([
-            'id' => $p->id,
-            'contact' => $p->contact_urgence,
-            'numero' => $p->num_urgence,
-            'antecedents' => $p->antecedents,
-            'allergies' => $p->allergies
+            'id' => $p->getId(),
+            'allergies' => $p->getAllergies()
         ]);
     }
 
@@ -73,11 +69,11 @@ class UserC
         );
 
         $req->execute([
-            'id' => $p->id,
-            'specialite' => $p->specialite,
-            'gouvernorat' => $p->gouvernorat,
-            'adresse' => $p->adresse_cabinet,
-            'tarif' => $p->tarif
+            'id' => $p->getId(),
+            'specialite' => $p->getSpecialite(),
+            'gouvernorat' => $p->getGouvernorat(),
+            'adresse' => $p->getAdresseCabinet(),
+            'tarif' => $p->getTarif()
         ]);
     }
 
@@ -94,8 +90,8 @@ class UserC
         );
 
         $req->execute([
-            'id' => $a->id,
-            'niveau' => $a->niveau_acces
+            'id' => $a->getId(),
+            'niveau' => $a->getNiveauAcces()
         ]);
     }
 
