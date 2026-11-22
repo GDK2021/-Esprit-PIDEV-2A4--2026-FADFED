@@ -1,0 +1,62 @@
+/* ===== Charte graphique FADFED ===== */
+:root {
+    --bleu-ciel: #7FB3D5;
+    --vert-sauge: #9CC5A1;
+    --lavande: #B39DDB;
+    --peche: #F4B8A0;
+    --sable: #F2D388;
+    --fond: #FAF7F2;
+    --gris-brume: #E8EDF0;
+    --ardoise: #3D4F66;
+    --alerte-douce: #D98E7A;
+    --radius: 16px;
+}
+
+body { font-family: 'Nunito', sans-serif; background: var(--fond); color: var(--ardoise); }
+h1, h2, h3, h4, h5, h6, .brand-name { font-family: 'Poppins', sans-serif; color: var(--ardoise); }
+.brand-ar { font-family: 'Noto Naskh Arabic', serif; }
+
+/* Spinner */
+#spinner { background: var(--fond); transition: opacity .5s ease-out, visibility 0s linear .5s; z-index: 99999; opacity: 0; visibility: hidden; }
+#spinner.show { transition: opacity .5s ease-out, visibility 0s linear 0s; opacity: 1; visibility: visible; }
+#spinner .spinner-border { color: var(--bleu-ciel); }
+
+/* Boutons */
+.btn-fadfed { background: var(--bleu-ciel); border: 0; color: #fff; border-radius: var(--radius); transition: background .4s ease; }
+.btn-fadfed:hover { background: var(--vert-sauge); color: #fff; }
+.btn-outline-fadfed { border: 2px solid var(--bleu-ciel); color: var(--ardoise); border-radius: var(--radius); }
+.btn-outline-fadfed:hover { background: var(--bleu-ciel); color: #fff; }
+.btn-lg-square { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 0; }
+
+/* Navbar */
+.navbar-fadfed { background: var(--fond); border-bottom: 1px solid var(--gris-brume); }
+.navbar-fadfed .brand-name { font-size: 1.6rem; font-weight: 700; color: var(--ardoise); }
+.navbar-fadfed .brand-ar { font-size: 1.3rem; color: var(--bleu-ciel); }
+.navbar-fadfed .brand-leaf { color: var(--vert-sauge); font-size: 1.4rem; }
+.navbar-fadfed .nav-link { padding: 25px 15px; color: var(--ardoise); font-weight: 600; transition: color .4s ease; }
+.navbar-fadfed .nav-link:hover, .navbar-fadfed .nav-link.active { color: var(--bleu-ciel); }
+.navbar-fadfed .dropdown-menu { border: 0; border-radius: var(--radius); background: var(--fond); }
+.navbar-fadfed .dropdown-item.active, .navbar-fadfed .dropdown-item:active { background: var(--gris-brume); color: var(--ardoise); }
+@media (min-width: 992px) {
+    .navbar-fadfed .dropdown-menu { display: block; visibility: hidden; opacity: 0; transition: .3s; }
+    .navbar-fadfed .dropdown:hover .dropdown-menu, .navbar-fadfed .dropdown-menu.show { visibility: visible; opacity: 1; }
+}
+
+/* Cartes */
+.card-fadfed { background: #fff; border: 1px solid var(--gris-brume); border-radius: var(--radius); padding: 2rem 1.5rem; height: 100%; text-align: center; }
+.card-fadfed .icon-circle { width: 64px; height: 64px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1.6rem; color: #fff; margin-bottom: 1rem; }
+.bg-bleu { background: var(--bleu-ciel); } .bg-sauge { background: var(--vert-sauge); }
+.bg-lavande { background: var(--lavande); } .bg-peche { background: var(--peche); } .bg-sable { background: var(--sable); }
+
+/* Hero */
+.hero-fadfed { background: var(--gris-brume); border-radius: 0 0 var(--radius) var(--radius); }
+.hero-fadfed .hero-logo { max-width: 100%; border-radius: var(--radius); }
+
+/* Footer */
+.footer-fadfed { background: var(--ardoise); color: var(--gris-brume); }
+.footer-fadfed h4 { color: #fff; }
+.footer-fadfed .btn.btn-link { display: block; padding: 0; text-align: left; color: var(--gris-brume); font-weight: normal; text-decoration: none; }
+.footer-fadfed .btn.btn-link:hover { color: var(--sable); }
+.footer-fadfed .btn-social { width: 36px; height: 36px; margin-right: 6px; padding: 0; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
+.footer-fadfed .copyright { border-top: 1px solid rgba(255,255,255,.15); }
+.back-to-top { position: fixed; display: none; right: 30px; bottom: 30px; z-index: 99; }
