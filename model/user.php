@@ -1,5 +1,5 @@
 <?php 
-qeqweqw
+
 class user{
     private int $id_user;
     private string $nom; 
