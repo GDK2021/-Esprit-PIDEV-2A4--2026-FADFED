@@ -24,7 +24,7 @@ form.addEventListener("submit", async event => {
     submitButton.disabled = true;
 
     try {
-        const response = await fetch("../control/inscription.php", {
+        const response = await fetch("../../control/inscription.php", {
             method: "POST",
             body: formData,
             credentials: "same-origin"
@@ -46,7 +46,7 @@ form.addEventListener("submit", async event => {
         messageBox.replaceChildren(
             document.createTextNode(data.message + " "),
             Object.assign(document.createElement("a"), {
-                href: "login.html",
+                href: "login.php",
                 textContent: "Se connecter"
             })
         );

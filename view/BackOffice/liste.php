@@ -1,26 +1,29 @@
+<?php
+require_once __DIR__ . '/../../control/session.php';
+$authenticatedUser = current_authenticated_user();
+
+if ($authenticatedUser === null) {
+    header('Location: login.php');
+    exit;
+}
+
+if ($authenticatedUser['role'] !== 'admin') {
+    http_response_code(403);
+    exit('Accès réservé aux administrateurs.');
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des utilisateurs</title>
-    <link rel="stylesheet" href="assets/css/liste.css">
-    <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="../assets/css/liste.css">
+    <link rel="stylesheet" href="../assets/css/navigation.css">
+    <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 <body>
-<header class="site-header">
-    <nav class="navigation" aria-label="Navigation principale">
-        <a class="wordmark" href="index.php#accueil" aria-label="FADFED, accueil">FADFED<span>.</span></a>
-        <div class="nav-links">
-            <a href="index.php#accueil">Accueil</a>
-            <a href="index.php#notre-approche">Notre approche</a>
-            <a href="index.php#ressources">Ressources</a>
-            <a href="login.html">Connexion</a>
-            <a href="register.html">Inscription</a>
-            <a href="liste.html" aria-current="page">Gestion utilisateurs</a>
-        </div>
-    </nav>
-</header>
+<?php require_once __DIR__ . '/../includes/navbar.php'; ?>
 <main>
     <section class="card">
         <div class="top">
@@ -135,6 +138,6 @@
     </form>
 </dialog>
 
-<script src="assets/js/liste.js"></script>
+<script src="../assets/js/liste.js"></script>
 </body>
 </html>

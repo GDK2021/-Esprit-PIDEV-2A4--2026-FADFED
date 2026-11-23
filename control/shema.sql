@@ -14,5 +14,6 @@ CREATE TABLE IF NOT EXISTS user (
     login            VARCHAR(50)  NOT NULL UNIQUE,
     mdp              VARCHAR(255) NOT NULL,
     num_telephone    INT          NOT NULL,
-    date_inscription DATE         NOT NULL
+    date_inscription DATE         NOT NULL,
+    photo_profil     VARCHAR(255) NULL
 );
