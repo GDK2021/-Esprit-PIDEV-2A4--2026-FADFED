@@ -18,7 +18,7 @@ form.addEventListener("submit", function (event) {
         return;
     }
 
-    fetch("../Controller/login_check.php", {
+    fetch("../control/loginCheck.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({ login, mdp })

@@ -1,9 +1,10 @@
 <?php
 
-session_start();
+require_once __DIR__ . "/session.php";
+start_app_session();
 header("Content-Type: application/json");
 
-require_once "UserController.php";
+require_once __DIR__ . "/userControl.php";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     http_response_code(405);
@@ -27,15 +28,6 @@ if ($user === null) {
     exit;
 }
 
-session_regenerate_id(true);
-$_SESSION["id_user"] = $user["id_user"];
-$_SESSION["role"]    = $user["role"];
+set_authenticated_user((int) $user["id_user"], (string) $user["role"]);
 
-// Change these pages to your real ones
-switch ($user["role"]) {
-    case "admin": $redirect = "../View/admin_dashboard.html"; break;
-    case "pro":   $redirect = "../View/pro_dashboard.html";   break;
-    default:      $redirect = "../View/home.html";
-}
-
-echo json_encode(["success" => true, "redirect" => $redirect]);
+echo json_encode(["success" => true, "redirect" => "../view/index.php"]);
