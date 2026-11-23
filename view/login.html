@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main class="card">
+        <h1>Log in</h1>
+        <p class="sub">Enter your details to access your account.</p>
+
+        <p id="error" class="error" role="alert" hidden></p>
+
+        <form id="login-form" novalidate>
+            <label for="login">Name</label>
+            <input type="text" id="login" name="login" autocomplete="username" autofocus>
+
+            <label for="mdp">Password</label>
+            <input type="password" id="mdp" name="mdp" autocomplete="current-password">
+
+            <a class="forgot" href="forgot_password.html">Forgot your password?</a>
+
+            <button type="submit" class="submit">Log in</button>
+        </form>
+
+        <p class="signup">No account yet? <a href="register.html">Sign up</a></p>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>
