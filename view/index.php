@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . '/../control/session.php';
+start_app_session();
+
 ob_start();
 ?>
         <section class="hero section-shell" id="accueil">
