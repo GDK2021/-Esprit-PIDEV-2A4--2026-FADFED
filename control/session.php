@@ -84,6 +84,27 @@ function is_authenticated(): bool
     return current_authenticated_user() !== null;
 }
 
+function app_csrf_token(): string
+{
+    start_app_session();
+
+    if (!isset($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+
+    return $_SESSION['csrf_token'];
+}
+
+function app_csrf_token_is_valid(mixed $token): bool
+{
+    start_app_session();
+    $expectedToken = $_SESSION['csrf_token'] ?? null;
+
+    return is_string($token)
+        && is_string($expectedToken)
+        && hash_equals($expectedToken, $token);
+}
+
 function logout_user(): void
 {
     start_app_session();

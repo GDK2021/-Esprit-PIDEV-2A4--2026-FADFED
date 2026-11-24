@@ -1,14 +1,14 @@
 <?php
-// Connexion PDO partagée par ajout.php et sup.php
+require_once __DIR__ . '/session.php';
+
+// Connexion PDO partagée par les API de gestion des utilisateurs.
 // Adapte ces 4 valeurs à ta base de données
 const DB_HOST = 'localhost';
 const DB_NAME = 'web_app';
 const DB_USER = 'root';
 const DB_PASS = '';
 
-// true pendant le développement : affiche la vraie erreur MySQL dans la page.
-// Mets false avant la mise en ligne.
-const DEBUG = true;
+const DEBUG = false;
 
 function getPDO(): PDO
 {
@@ -37,14 +37,11 @@ function jsonResponse(int $status, bool $success, string $message): never
     exit;
 }
 
-// Seul un admin connecté peut appeler ajout.php / sup.php
-// (suppose que la page de login fait : $_SESSION['role'] = 'admin'; $_SESSION['id_user'] = ...)
+// Seul un admin connecté peut appeler les opérations de gestion des utilisateurs.
 function requireAdmin(): void
 {
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-    if (($_SESSION['role'] ?? '') !== 'admin') {
+    $user = current_authenticated_user();
+    if ($user === null || $user['role'] !== 'admin') {
         jsonResponse(403, false, "Accès refusé : réservé à l'administrateur.");
     }
 }

@@ -1,0 +1,301 @@
+:root {
+    --blue: #7FB3D5;
+    --green: #9CC5A1;
+    --lilac: #B39DDB;
+    --peach: #F4B8A0;
+    --yellow: #F2D388;
+    --cream: #FAF7F2;
+    --mist: #E8EDF0;
+    --ink: #3D4F66;
+    --coral: #D98E7A;
+    --white: #fff;
+    --font-body: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+}
+
+.site-header {
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid rgba(61, 79, 102, .08);
+}
+
+.navigation {
+    width: min(1120px, calc(100% - 64px));
+    min-height: 82px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wordmark {
+    color: var(--ink);
+    font-size: 1.35rem;
+    font-weight: 850;
+    letter-spacing: .09em;
+    text-decoration: none;
+}
+
+.wordmark span {
+    color: var(--coral);
+}
+
+.nav-links {
+    display: flex;
+    gap: 38px;
+    color: rgba(61, 79, 102, .8);
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.nav-links a {
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.nav-links a:hover {
+    color: var(--coral);
+}
+
+.nav-links a[aria-current="page"] {
+    color: var(--ink);
+    font-weight: 800;
+}
+
+:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+}
+
+.registration-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 8% 18%, rgba(127, 179, 213, .2), transparent 24rem),
+        radial-gradient(circle at 92% 38%, rgba(179, 157, 219, .16), transparent 26rem),
+        var(--cream);
+    font-family: var(--font-body);
+}
+
+.registration-page main {
+    width: min(880px, calc(100% - 40px));
+    margin: 42px auto 64px;
+    display: grid;
+    place-items: center;
+}
+
+.registration-card {
+    width: 100%;
+    padding: clamp(24px, 5vw, 48px);
+    border: 1px solid rgba(61, 79, 102, .1);
+    border-radius: 26px;
+    background: rgba(255, 255, 255, .94);
+    box-shadow: 0 24px 70px rgba(61, 79, 102, .12);
+    font-family: var(--font-body);
+}
+
+.registration-eyebrow {
+    margin: 0 0 12px;
+    color: var(--coral);
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.registration-card h1 {
+    margin: 0 0 12px;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -.04em;
+    text-align: center;
+}
+
+.registration-intro {
+    max-width: 540px;
+    margin: 0 auto 30px;
+    color: rgba(61, 79, 102, .72);
+    line-height: 1.6;
+    text-align: center;
+}
+
+#registration-form {
+    width: min(100%, 740px);
+    margin: 0 auto;
+    padding: clamp(18px, 4vw, 32px);
+    border: 1px solid rgba(127, 179, 213, .35);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(127, 179, 213, .16), rgba(179, 157, 219, .14));
+    box-shadow: 0 12px 32px rgba(61, 79, 102, .07);
+}
+
+.registration-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.registration-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--ink);
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.registration-field input,
+.registration-field select {
+    width: 100%;
+    min-height: 50px;
+    padding: 11px 14px;
+    border: 1px solid rgba(61, 79, 102, .17);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, .94);
+    color: var(--ink);
+    font: inherit;
+    transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.registration-field input:hover,
+.registration-field select:hover {
+    border-color: rgba(61, 79, 102, .34);
+}
+
+.registration-field input:focus-visible,
+.registration-field select:focus-visible {
+    border-color: var(--blue);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(127, 179, 213, .2);
+    outline-offset: 2px;
+}
+
+.registration-submit {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 26px;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--cream);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 180ms ease, transform 180ms ease;
+}
+
+.registration-submit:hover {
+    background: #2f4055;
+    transform: translateY(-2px);
+}
+
+.registration-submit:disabled {
+    cursor: wait;
+    opacity: .7;
+    transform: none;
+}
+
+.registration-message {
+    margin: 0 0 20px;
+    padding: 12px 14px;
+    border: 1px solid rgba(217, 142, 122, .35);
+    border-radius: 10px;
+    background: rgba(244, 184, 160, .2);
+    color: #854b41;
+    line-height: 1.5;
+}
+
+.registration-message.success {
+    border-color: rgba(156, 197, 161, .55);
+    background: rgba(156, 197, 161, .2);
+    color: #496d4e;
+}
+
+.registration-message a {
+    color: inherit;
+    font-weight: 800;
+}
+
+.registration-login {
+    margin: 24px 0 0;
+    color: rgba(61, 79, 102, .72);
+    text-align: center;
+}
+
+.registration-login a {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--blue);
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 800px) {
+    .navigation {
+        width: min(100% - 40px, 600px);
+        flex-wrap: wrap;
+        padding: 14px 0;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .navigation {
+        justify-content: center;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: .75rem;
+    }
+
+    .registration-fields {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .registration-page main {
+        width: min(100% - 28px, 480px);
+        margin-top: 24px;
+    }
+
+    #registration-form {
+        padding: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
