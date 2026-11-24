@@ -15,8 +15,7 @@ if (!ctype_digit($id) || (int)$id < 1) {
 $id = (int)$id;
 
 // L'admin ne peut pas supprimer son propre compte
-$currentUser = current_authenticated_user();
-if ($currentUser !== null && $id === $currentUser['id']) {
+if ($id === (int)($_SESSION['id_user'] ?? 0)) {
     jsonResponse(403, false, 'Tu ne peux pas supprimer ton propre compte.');
 }
 

@@ -1,29 +1,62 @@
-<?php
-require_once __DIR__ . '/../../control/session.php';
-$authenticatedUser = current_authenticated_user();
-
-if ($authenticatedUser === null) {
-    header('Location: login.php');
-    exit;
-}
-
-if ($authenticatedUser['role'] !== 'admin') {
-    http_response_code(403);
-    exit('Accès réservé aux administrateurs.');
-}
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des utilisateurs</title>
-    <link rel="stylesheet" href="../assets/css/liste.css">
-    <link rel="stylesheet" href="../assets/css/navigation.css">
-    <link rel="stylesheet" href="../assets/css/profile.css">
+    <style>
+        :root {
+            --bg: #f5f6f8; --card: #fff; --text: #1d2330; --muted: #5d6578;
+            --line: #d7dbe3; --accent: #1f5fbf; --danger: #b3261e; --ok: #1b7a3d;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #14171f; --card: #1d212c; --text: #eef0f5; --muted: #a2a9ba;
+                --line: #343a4a; --accent: #6fa3ff; --danger: #ff8a80; --ok: #6fd391;
+            }
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 24px 16px; background: var(--bg); color: var(--text);
+               font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.5; }
+        main { max-width: 1100px; margin: 0 auto; }
+        section.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 24px; }
+        h1 { font-size: 1.4rem; margin: 0; }
+        h2 { font-size: 1.15rem; margin: 0 0 16px; }
+        .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+        .bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+        .count { color: var(--muted); margin-left: auto; }
+        input, select { padding: 9px 10px; border: 1px solid var(--line); border-radius: 6px;
+                        background: var(--bg); color: var(--text); font: inherit; }
+        input:focus-visible, select:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+        input[type=search] { width: 150px; }
+        button { padding: 9px 16px; border: 0; border-radius: 6px; background: var(--accent); color: #fff;
+                 font: inherit; font-weight: 600; cursor: pointer; }
+        button.secondary { background: transparent; color: var(--text); border: 1px solid var(--line); }
+        button.del { padding: 6px 12px; background: var(--danger); font-size: .85rem; }
+        button:disabled { opacity: .6; cursor: wait; }
+        .wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+        th, td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+        th { color: var(--muted); font-weight: 600; }
+        .empty { padding: 24px 0; color: var(--muted); }
+        .msg { margin-top: 14px; font-weight: 600; min-height: 1.4em; }
+        .msg.ok { color: var(--ok); } .msg.ko { color: var(--danger); }
+
+        /* fenêtre d'ajout */
+        dialog { border: 1px solid var(--line); border-radius: 10px; padding: 24px; background: var(--card);
+                 color: var(--text); width: min(680px, 94vw); max-height: 92vh; overflow-y: auto; }
+        dialog::backdrop { background: rgba(0,0,0,.5); }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .field { display: flex; flex-direction: column; gap: 4px; }
+        .field.full { grid-column: 1 / -1; }
+        label { font-weight: 600; font-size: .9rem; }
+        .error { color: var(--danger); font-size: .82rem; min-height: 1.1em; }
+        input.invalid, select.invalid { border-color: var(--danger); }
+        .actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+        @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+    </style>
 </head>
 <body>
-<?php require_once __DIR__ . '/../includes/navbar.php'; ?>
 <main>
     <section class="card">
         <div class="top">
@@ -138,6 +171,6 @@ if ($authenticatedUser['role'] !== 'admin') {
     </form>
 </dialog>
 
-<script src="../assets/js/liste.js"></script>
+<script src="liste.js"></script>
 </body>
 </html>

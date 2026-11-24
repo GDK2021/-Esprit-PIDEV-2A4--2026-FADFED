@@ -549,16 +549,6 @@ h2 {
         width: min(100% - 40px, 600px);
     }
 
-    .navigation {
-        flex-wrap: wrap;
-        padding: 14px 0;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
     .footer-main {
         grid-template-columns: 1fr auto;
     }

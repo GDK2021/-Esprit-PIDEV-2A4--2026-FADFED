@@ -62,7 +62,7 @@ function render() {
 
 async function charger() {
     try {
-        const res  = await fetch('../../control/liste.php', { credentials: 'same-origin' });
+        const res  = await fetch('liste.php', { credentials: 'same-origin' });
         const data = await parseJson(res);
         if (!data.success) { showMessage(msg, data.message, false); return; }
         users = data.users;
@@ -98,7 +98,7 @@ async function supprimer(u, btn) {
     try {
         const fd = new FormData();
         fd.append('id_user', u.id_user);
-        const res  = await fetch('../../control/sup.php', { method: 'POST', body: fd, credentials: 'same-origin' });
+        const res  = await fetch('sup.php', { method: 'POST', body: fd, credentials: 'same-origin' });
         const data = await parseJson(res);
         showMessage(msg, data.message, data.success);
         if (data.success) {
@@ -173,7 +173,7 @@ formAjout.addEventListener('submit', async e => {
 
     btn.disabled = true;
     try {
-        const res  = await fetch('../../control/ajout.php', { method: 'POST', body: new FormData(formAjout), credentials: 'same-origin' });
+        const res  = await fetch('ajout.php', { method: 'POST', body: new FormData(formAjout), credentials: 'same-origin' });
         const data = await parseJson(res);
         if (data.success) {
             fermerFenetre();

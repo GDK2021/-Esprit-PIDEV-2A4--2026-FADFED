@@ -1,6 +1,5 @@
 const form = document.getElementById("login-form");
 const errorBox = document.getElementById("error");
-const loginArea = form.dataset.loginArea || "frontoffice";
 
 function showError(message) {
     errorBox.textContent = message;
@@ -15,22 +14,22 @@ form.addEventListener("submit", function (event) {
     const mdp = document.getElementById("mdp").value;
 
     if (login === "" || mdp === "") {
-        showError("Veuillez saisir votre identifiant et votre mot de passe.");
+        showError("Please enter your name and password.");
         return;
     }
 
-    fetch("../../control/loginCheck.php", {
+    fetch("../control/loginCheck.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ login, mdp, area: loginArea })
+        body: new URLSearchParams({ login, mdp })
     })
         .then(res => res.json())
         .then(data => {
             if (data.success) {
                 window.location.href = data.redirect;
             } else {
-                showError(data.message || "Identifiant ou mot de passe incorrect.");
+                showError(data.message || "Incorrect name or password.");
             }
         })
-        .catch(() => showError("Une erreur est survenue. Veuillez réessayer."));
+        .catch(() => showError("Something went wrong. Try again."));
 });

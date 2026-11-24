@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../control/session.php';
+require_once __DIR__ . '/../control/session.php';
 start_app_session();
 
 ob_start();
@@ -19,7 +19,7 @@ ob_start();
                 <div class="art-orbit orbit-one"></div>
                 <div class="art-orbit orbit-two"></div>
                 <div class="hero-image-card">
-                    <img src="../assets/img/image.png" alt="Logo FADFED : une bulle bleue souriante avec une feuille verte">
+                    <img src="assets/img/image.png" alt="Logo FADFED : une bulle bleue souriante avec une feuille verte">
                 </div>
                 <div class="floating-note note-top"><span class="note-icon note-icon-green" aria-hidden="true">✳</span> À ton rythme</div>
                 <div class="floating-note note-bottom"><span class="note-icon note-icon-peach" aria-hidden="true">♡</span> Sans jugement</div>
@@ -68,4 +68,4 @@ ob_start();
         </section>
 <?php
 $pageContent = ob_get_clean();
-require __DIR__ . '/../layout.php';
+require __DIR__ . '/layout.php';
