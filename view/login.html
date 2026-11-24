@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navigation principale">
+            <a class="wordmark" href="index.php#accueil" aria-label="FADFED, accueil">FADFED<span>.</span></a>
+            <div class="nav-links">
+                <a href="index.php#accueil">Accueil</a>
+                <a href="index.php#notre-approche">Notre approche</a>
+                <a href="index.php#ressources">Ressources</a>
+                <a href="login.html" aria-current="page">Connexion</a>
+                <a href="register.html">Inscription</a>
+                <a href="liste.html">Gestion utilisateurs</a>
+            </div>
+        </nav>
+    </header>
+    <main class="card">
+        <h1>Log in</h1>
+        <p class="sub">Enter your details to access your account.</p>
+
+        <p id="error" class="error" role="alert" hidden></p>
+
+        <form id="login-form" novalidate>
+            <label for="login">Name</label>
+            <input type="text" id="login" name="login" autocomplete="username" autofocus>
+
+            <label for="mdp">Password</label>
+            <input type="password" id="mdp" name="mdp" autocomplete="current-password">
+
+            <a class="forgot" href="forgot_password.html">Forgot your password?</a>
+
+            <button type="submit" class="submit">Log in</button>
+        </form>
+
+        <p class="signup">No account yet? <a href="register.html">Sign up</a></p>
+    </main>
+
+    <script src="assets/js/login.js"></script>
+</body>
+</html>

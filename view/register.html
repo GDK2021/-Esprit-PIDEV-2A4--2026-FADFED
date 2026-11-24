@@ -1,19 +1,26 @@
-<?php
-require_once __DIR__ . '/../../control/session.php';
-start_app_session();
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription — FADFED</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/navigation.css">
-    <link rel="stylesheet" href="../assets/css/profile.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
 </head>
 <body class="registration-page">
-    <?php require_once __DIR__ . '/../includes/navbar.php'; ?>
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navigation principale">
+            <a class="wordmark" href="index.php#accueil" aria-label="FADFED, accueil">FADFED<span>.</span></a>
+            <div class="nav-links">
+                <a href="index.php#accueil">Accueil</a>
+                <a href="index.php#notre-approche">Notre approche</a>
+                <a href="index.php#ressources">Ressources</a>
+                <a href="login.html">Connexion</a>
+                <a href="register.html" aria-current="page">Inscription</a>
+                <a href="liste.html">Gestion utilisateurs</a>
+            </div>
+        </nav>
+    </header>
     <main>
         <section class="registration-card" aria-labelledby="registration-title">
             <p class="registration-eyebrow">Bienvenue chez FADFED</p>
@@ -93,9 +100,9 @@ start_app_session();
                 <button class="registration-submit" type="submit">Créer mon compte</button>
             </form>
 
-            <p class="registration-login">Déjà inscrit ? <a href="login.php">Se connecter</a></p>
+            <p class="registration-login">Déjà inscrit ? <a href="login.html">Se connecter</a></p>
         </section>
     </main>
-    <script src="../assets/js/register.js"></script>
+    <script src="assets/js/register.js"></script>
 </body>
 </html>
