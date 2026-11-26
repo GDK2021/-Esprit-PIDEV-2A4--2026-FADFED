@@ -61,7 +61,7 @@ function fillProfile(user) {
 
 async function loadProfile() {
     try {
-        const response = await fetch("../../control/profile.php", { credentials: "same-origin" });
+        const response = await fetch("../../control/userControl.php?action=profile", { credentials: "same-origin" });
         const data = await response.json();
         if (!response.ok || !data.success) {
             showProfileMessage(data.message || "Impossible de charger votre profil.", false);
@@ -88,7 +88,7 @@ profileForm.addEventListener("submit", async event => {
     const saveButton = document.getElementById("profile-save");
     saveButton.disabled = true;
     try {
-        const response = await fetch("../../control/profile.php", {
+        const response = await fetch("../../control/userControl.php?action=profile", {
             method: "POST",
             body: new FormData(profileForm),
             credentials: "same-origin"

@@ -4,7 +4,7 @@
         <?php
         $navProfile = null;
         if ($authenticatedUser !== null) {
-            require_once __DIR__ . '/../../control/config.php';
+            require_once __DIR__ . '/../../control/userControl.php';
             $profileStatement = getPDO()->prepare('SELECT pseudo, photo_profil FROM user WHERE id_user = :id');
             $profileStatement->execute([':id' => $authenticatedUser['id']]);
             $navProfile = $profileStatement->fetch() ?: null;
@@ -21,7 +21,7 @@
         <div class="nav-links">
             <a href="../BackOffice/liste.php" aria-current="page">Gestion utilisateurs</a>
             <a href="../frontOffice/index.php">Voir le site</a>
-            <a href="../../control/logout.php">Déconnexion</a>
+            <a href="../../control/userControl.php?action=logout">Déconnexion</a>
         </div>
         <a class="profile-nav-link" href="../frontOffice/profile.php" aria-label="Profil de <?= htmlspecialchars($profilePseudo, ENT_QUOTES, 'UTF-8') ?>">
             <?php if ($profilePhotoUrl !== null): ?>
@@ -40,7 +40,7 @@
             <a href="../frontOffice/register.php">Inscription</a>
             <a href="../BackOffice/login.php">Espace admin</a>
             <?php else: ?>
-            <a href="../../control/logout.php">Déconnexion</a>
+            <a href="../../control/userControl.php?action=logout">Déconnexion</a>
             <?php endif; ?>
         </div>
         <?php if ($authenticatedUser !== null): ?>

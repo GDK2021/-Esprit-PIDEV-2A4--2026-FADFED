@@ -24,7 +24,7 @@ form.addEventListener("submit", async event => {
     submitButton.disabled = true;
 
     try {
-        const response = await fetch("../../control/inscription.php", {
+        const response = await fetch("../../control/userControl.php?action=register", {
             method: "POST",
             body: formData,
             credentials: "same-origin"

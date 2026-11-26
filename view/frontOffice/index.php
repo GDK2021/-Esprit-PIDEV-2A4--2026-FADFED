@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../control/session.php';
+require_once __DIR__ . '/../../control/userControl.php';
 start_app_session();
 
 ob_start();

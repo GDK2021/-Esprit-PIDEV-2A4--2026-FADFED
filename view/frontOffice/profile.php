@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../control/session.php';
+require_once __DIR__ . '/../../control/userControl.php';
 
 if (current_authenticated_user() === null) {
     header('Location: login.php');
